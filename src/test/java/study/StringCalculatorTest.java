@@ -17,17 +17,12 @@ class StringCalculatorTest {
 
     StringCalculator stringCalculator;
 
-    @BeforeEach
-    void setCalculator() {
-        this.stringCalculator = new StringCalculator(new Calculator());
-    }
-
     @Test
     void 문자열계산기_테스트() {
         //given
-        String[] testValue = new String[] {"2","+","3","*","4","/","1","+","5","-","5","2"};
+        this.stringCalculator = new StringCalculator(new Calculator(),"2 + 3 * 4 / 1 + 5 - 5 2");
         //when
-        int result = stringCalculator.calculate(testValue);
+        int result = stringCalculator.calculate();
         //then
         assertThat(result).isEqualTo(20);
     }
