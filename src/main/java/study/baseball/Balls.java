@@ -21,8 +21,7 @@ public class Balls {
 
     public Score play(List<Integer> userNumbers) {
         Score score = new Score();
-        List<Ball> userBall = mapBalls(userNumbers);
-        for (Ball ball : userBall) {
+        for (Ball ball : mapBalls(userNumbers)) {
             score.add(this.play(ball));
         }
         return score;
@@ -34,5 +33,10 @@ public class Balls {
                        .filter(BallStatus::isNotNothing)
                        .findFirst()
                        .orElse(BallStatus.NOTHING);
+    }
+
+    @Override
+    public String toString() {
+        return answers.get(0).toString() + answers.get(1).toString() + answers.get(2).toString();
     }
 }

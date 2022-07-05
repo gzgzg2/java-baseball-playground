@@ -22,7 +22,7 @@ public class Ball {
     }
 
     private boolean isBall(Ball ball) {
-        return ball.number == this.number;
+        return ball.number.equals(this.number);
     }
 
     @Override
@@ -30,7 +30,7 @@ public class Ball {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Ball ball = (Ball) o;
-        return position == ball.position && number == ball.number;
+        return position.equals(ball.position) && number.equals(ball.number);
     }
 
     @Override
